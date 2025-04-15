@@ -1,10 +1,10 @@
 {
-  "name": "wanderflow",
+  "name": "wandermatch",
   "version": "1.0.0",
   "description": "Travel Partner Matching Platform",
   "main": "index.js",
   "scripts": {
-    "dev": "netlify dev"
+    "dev": "netlify dev",
     "build": "echo 'No build step required'"
   },
   "dependencies": {
