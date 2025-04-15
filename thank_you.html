@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - WanderMatch</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .thank-you-header {
+            background: linear-gradient(120deg, #4a69bd 0%, #6a89cc 100%);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            padding: 2rem 0;
+            margin-bottom: 0;
+        }
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .step {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #dee2e6;
+            color: #495057;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 1rem;
+            font-weight: 600;
+            position: relative;
+        }
+        .step.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .step.completed {
+            background-color: #28a745;
+            color: white;
+        }
+        .step::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: #dee2e6;
+            top: 50%;
+            left: 100%;
+            transform: translateY(-50%);
+        }
+        .step:last-child::after {
+            display: none;
+        }
+        .step.completed::after {
+            background-color: #28a745;
+        }
+        .step-label {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        .content-card {
+            margin-top: 1rem;
+            display: none;
+        }
+        .content-card.active {
+            display: block;
+        }
+        .button-container {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <!-- Alert container for messages -->
+        <div id="alertContainer" class="mb-4"></div>
+
+        <div class="card mb-4">
+            <div class="thank-you-header text-center">
+                <h1 class="mb-3">Thank You for Completing the Survey!</h1>
+                <p class="lead mb-0">Your preferences have been recorded. Let's find your perfect travel partner!</p>
+            </div>
+
+            <div class="card-body">
+                <!-- Step indicator -->
+                <div class="step-indicator">
+                    <div class="step completed" id="step1">
+                        1
+                        <div class="step-label">Survey</div>
+                    </div>
+                    <div class="step active" id="step2">
+                        2
+                        <div class="step-label">Matches</div>
+                    </div>
+                    <div class="step" id="step3">
+                        3
+                        <div class="step-label">Travel Advice</div>
+                    </div>
+                    <div class="step" id="step4">
+                        4
+                        <div class="step-label">Blog</div>
+                    </div>
+                </div>
+
+                <!-- Content cards for each step -->
+                <div id="matchingResults" class="content-card active">
+                    <div class="text-center mb-4">
+                        <h2>Finding your perfect travel matches...</h2>
+                        <div class="spinner-border text-primary my-3" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="text-muted">Please wait while we analyze your preferences</p>
+                    </div>
+                </div>
+
+                <!-- Navigation buttons -->
+                <div class="button-container">
+                    <button id="getAdviceBtn" class="btn btn-primary" style="display: none;">
+                        <i class="bi bi-lightbulb-fill me-2"></i>Get Travel Advice
+                    </button>
+                    <button class="btn btn-outline-secondary" onclick="window.location.href='/index.html'">
+                        <i class="bi bi-arrow-left me-2"></i>Return to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center text-muted">
+            <p>&copy; 2025 WanderMatch | Travel Partner Matching Platform</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
